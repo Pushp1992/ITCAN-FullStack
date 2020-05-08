@@ -1,0 +1,36 @@
+#cardImg {
+    width: 300px;
+    height: 300px;
+}
+
+#cardName {
+    font-size: medium;
+    color: teal;
+}
+
+#cardDesc {
+    font-size: small;
+    color: rgba(0, 0, 0, 0.678);
+}
+
+#cardPrice {
+    font-weight: 800;
+}
+
+.cardInfo {
+    font-size: small;
+}
+
+#cardQty {
+    width: 40px;
+    height: auto;
+    display: -webkit-flex;
+}
+
+#qtyDisplay {
+    display: -webkit-inline-box;
+}
+
+/* #header {
+    position: sticky;
+} */

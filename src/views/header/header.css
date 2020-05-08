@@ -1,0 +1,18 @@
+#headerContent {
+    /* background-color: #777; */
+    background-color: black;
+    color: white;
+    height: 50px;;
+}
+
+#logoStyle {
+    width: 140px;
+    vertical-align: middle;
+    border: 0;
+    transition: all .3s ease;
+}
+
+a:-webkit-any-link {
+    color: white;
+    text-decoration: none;
+}
