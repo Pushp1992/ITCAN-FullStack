@@ -81,10 +81,11 @@ class ListingPage extends Component {
     }
     render() {
         return (
-            <Container fluid={true}>
-                <Header id="header" />
+            <>
+            <Header id="header" />
+            <Container fluid={false}>                
                 <Row noGutters={true}>
-                    <Col md={{ size: 10 }}></Col>
+                    <Col md={{ size: 8 }}></Col>
                     <Col md={{ size: 2 }}>
                         {
                             this.state.selectedProductList.length !== 0 ?
@@ -107,19 +108,21 @@ class ListingPage extends Component {
                                     return (
                                         <Col key={itemData.length} md={{ size: 3, offset: 1 }}>
                                             <Card>
-                                                <img id="cardImg" width="100%" src={`${BASE_URL}/${itemData.image}`} />
+                                                <CardImg top width="100%" src={`${BASE_URL}/${itemData.image}`} />
                                                 <CardBody>
                                                     <CardTitle id="cardName">{itemData.name}</CardTitle>
                                                     <CardText id="cardDesc">{itemData.description}</CardText>
                                                     <CardText>
                                                         <Row className="cardInfo">
                                                             <Col md={{ size: 4 }} id="cardPrice">{itemData.price}</Col>
-                                                            <Col md={{ size: 7 }} id="qtyDisplay">Select Quantity:
-                                                        <Input type="select" name={itemData.name} value={this.state.selectedQty} onChange={this.handleChange} id="cardQty">
+                                                            <Col md={{ size: 6 }} id="qtyDisplay">Qty:
+                                                            <Col md={{size: 2}}>
+                                                            <Input type="select" name={itemData.name} value={this.state.selectedQty} onChange={this.handleChange} id="cardQty">
                                                                     {
                                                                         itemData.qty.map(data => { return (<option key={data} value={data}> {data}</option>) })
                                                                     }
                                                                 </Input>
+                                                            </Col>
                                                             </Col>
                                                         </Row>
                                                     </CardText>
@@ -136,6 +139,7 @@ class ListingPage extends Component {
                     </Row>
                 </form>
             </Container>
+            </>
         )
     }
 }

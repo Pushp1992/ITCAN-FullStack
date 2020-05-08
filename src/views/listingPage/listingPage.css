@@ -24,7 +24,7 @@
 #cardQty {
     width: 40px;
     height: auto;
-    display: -webkit-flex;
+    display: -webkit-inline-box;
 }
 
 #qtyDisplay {

@@ -7,7 +7,7 @@ import Listings from '../../service/listingService';
 import '../listingPage/listingPage.css';
 import { Container, Row, Col, Label, Input, Card, Button, CardText, CardBody, CardTitle } from "reactstrap";
 
-const BASE_URL = "https://res.cloudinary.com/pushpcloud/image/upload/v1586605991/infrrd";
+const BASE_URL = "https://res.cloudinary.com/pushpcloud/image/upload/v1588930923/itcan";
 
 Container.propTypes = {
     fluid: PropTypes.bool
