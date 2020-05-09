@@ -1,9 +1,9 @@
 const Listings = {
      listItem: [
         {id: 1, name:"WOW Amazon Skin care", description: "Mineral Face Pack with Brazilian Kaolin White Clay, Buriti Oil", qty: [3], price:'Rs. 129', image: 'WOW_Amazon_Skin_Science_i0a9tq.jpg'},
-        {id: 2, name:"Mamaearth Tea Tree Natural Face Wash", description: "Mamaearth Tea Tree Natural Face Wash for Acne & Pimples Wash 100 ml - For Normal & Dry Skin", qty: [5], price: 'Rs. 399', image: 'Mamaearth_Tea_Tree_dnmd2c.jpg'},
+        {id: 2, name:"Mamaearth Tea Tree Natural Face Wash", description: "Mamaearth Tea Tree Natural Face Wash for Acne.", qty: [5], price: 'Rs. 399', image: 'Mamaearth_Tea_Tree_dnmd2c.jpg'},
         {id: 3, name:"UrbanBotanics", description: "UrbanBotanics 99% Pure Aloe Vera Skin/Hair Gel With Vitamin E & Natural Emollients", qty: [6], price: 'Rs. 499', image: 'UrbanBotanics_mxszut.jpg'},
-        {id: 4, name:"Morpheme Remedies Organic", description: "Morpheme Remedies Organic Sesame Pure ColdPressed Oil For Hair, Body, Skin Care, Massage, 200 ml", qty: [8], price: 'Rs. 750', image: 'Morpheme_susgoq.jpg'},
+        {id: 4, name:"Morpheme Remedies Organic", description: "Morpheme Remedies Organic Sesame Pure ColdPressed Oil For Hair.", qty: [8], price: 'Rs. 750', image: 'Morpheme_susgoq.jpg'},
         {id: 5, name:"Luxura Sciences African", description: "Luxura Sciences African Raw Shea Butter Unrefined Organic", qty: [2], price: 'Rs. 129', image: 'Luxura_wetkev.jpg'},
 
         {id: 1, name:"Kapiva Pure Aloe Vera Skin Gel", description: "Kapiva Pure Aloe Vera Skin Gel - Hydrating Gel for Face - 500g", qty: [4], price: 'Rs. 299', image: 'Kapiva_nfmbxy.jpg'},
@@ -13,9 +13,9 @@ const Listings = {
         {id: 5, name:"NIVEA Shower Gel and shampoo", description: "NIVEA Shower Gel, Power Fruit Fresh Body Wash, 250ml", qty: [2], price: 'Rs. 550', image: 'NIVEA_iqnjna.jpg'},
 
         {id: 1, name:"LYRA MATCH", description: "Mineral Face Pack with Brazilian Kaolin White Clay, Buriti Oil", qty: [4], price:'Rs. 129', image: 'WOW_Amazon_Skin_Science_i0a9tq.jpg'},
-        {id: 2, name:"WOW Amazon Skin care and Science", description: "Mamaearth Tea Tree Natural Face Wash for Acne & Pimples Wash 100 ml - For Normal & Dry Skin", qty: [5], price: 'Rs. 699', image: 'Mamaearth_Tea_Tree_dnmd2c.jpg'},
+        {id: 2, name:"WOW Amazon Skin care and Science", description: "Mamaearth Tea Tree Natural Face Wash for Acne.", qty: [5], price: 'Rs. 699', image: 'Mamaearth_Tea_Tree_dnmd2c.jpg'},
         {id: 3, name:"UrbanBotanics Pure Aloe", description: "UrbanBotanics 99% Pure Aloe Vera Skin/Hair Gel With Vitamin E & Natural Emollients", qty: [7], price: 'Rs. 799', image: 'UrbanBotanics_mxszut.jpg'},
-        {id: 4, name:"Khadi Mauri Herbal Ubtan Face Pack Tan removal", description: "Morpheme Remedies Organic Sesame Pure ColdPressed Oil For Hair, Body, Skin Care, Massage, 200 ml", qty: [8], price: 'Rs. 750', image: 'Morpheme_susgoq.jpg'},
+        {id: 4, name:"Khadi Mauri Herbal Ubtan Face Pack Tan removal", description: "Morpheme Remedies Organic Sesame Pure ColdPressed Oil For Hair.", qty: [8], price: 'Rs. 750', image: 'Morpheme_susgoq.jpg'},
         {id: 5, name:"Khadi Mauri Herbal Ubtan Face Pack Turmeric", description: "Luxura Sciences African Raw Shea Butter Unrefined Organic", qty: [11], price: 'Rs. 129', image: 'Luxura_wetkev.jpg'},
 
         {id: 1, name:"Kapiva Pure Aloe Vera Skin Gel Jeans", description: "Kapiva Pure Aloe Vera Skin Gel - Hydrating Gel for Face - 500g", qty: [10], price: 'Rs. 899', image: 'Kapiva_nfmbxy.jpg'},
