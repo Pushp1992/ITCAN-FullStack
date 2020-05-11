@@ -31,6 +31,7 @@
     "start": "PORT=5555 react-scripts start",
     "server": "node-env-run src/server --exec nodemon",
     "dev": "run-p start server",
+    "dev-db": "run-p database start server",
     "database": "mongod",
     "build": "react-scripts build",
     "test": "react-scripts test",

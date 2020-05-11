@@ -20,7 +20,7 @@ const Header = () => {
             <Row noGutters={true}>
                 <Col md={{ size: 10 }}>
                     {/* <img src={logo} alt="logo" id="logoStyle" /> */}
-                    <span>LOGO</span>
+                    <span>ITCAN</span>
                 </Col>
                 <Col md={{ size: 2 }}>
                     {/* <Link to="/cart">

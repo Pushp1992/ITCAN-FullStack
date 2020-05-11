@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Badge } from 'reactstrap';
 import Header from '../header/header';
 import Listings from '../../service/listingService';
-import { Container, Row, Col, Input, Card, CardImg, CardText, CardBody, CardTitle, Form, FormGroup } from "reactstrap";
-import Button from '../../component/button/button';
+import { Container, Row, Col, Input, Card, CardImg, CardText, CardBody, CardTitle, Form, FormGroup, Button } from "reactstrap";
+// import Button from '../../component/button/button';
 import '../cart/cart.css';
 import '../listingPage/listingPage.css';
 
@@ -127,7 +127,7 @@ class CartPage extends Component {
                                                                 </CardBody>
                                                                 <Button name="submit" type="submit" color="warning" value={itemData.name} onClick={this.removeProduct}>
                                                                     <i className="fa fa-trash" aria-hidden="true"></i> Remove From cart
-                                                        </Button>
+                                                                </Button>
                                                             </Card> <br />
 
                                                         </Col>
@@ -184,7 +184,7 @@ class CartPage extends Component {
                                                     </Row>
                                                 </Form>
                                             </CardText>
-                                            <Button type="submit" label="Proceed to Pay" handleClick={this.proceedToPay} />
+                                            <Button name="payment" color="success" onClick={this.proceedToPay}>Proceed to Pay</Button>
                                         </Card>
                                     </Col>
                                 </Row>
