@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../header/header.css';
+import logo from '../../images/itcan-logo.png';
 
 Container.propTypes = {
     fluid: PropTypes.bool
@@ -18,7 +19,8 @@ const Header = () => {
         <Container fluid={true} id="headerContent">
             <Row noGutters={true}>
                 <Col md={{ size: 10 }}>
-                    <img src="https://infrrd.ai/sites/all/themes/infrrd/images/in-logo.png" alt="logo" id="logoStyle" />
+                    {/* <img src={logo} alt="logo" id="logoStyle" /> */}
+                    <span>ITCAN</span>
                 </Col>
                 <Col md={{ size: 2 }}>
                     {/* <Link to="/cart">

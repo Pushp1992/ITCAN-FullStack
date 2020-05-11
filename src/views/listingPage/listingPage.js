@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import Listings from '../../service/listingService';
 import { Container, Row, Col, Label, Input, Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 // custom import 
 import '../listingPage/listingPage.css';
 import Header from '../header/header';
 import Button from '../../component/button/button';
+import ProductData from '../../service/apiService';
+import Listings from '../../service/listingService';
 import CustomToastr from '../../service/CustomToastr';
 
 Container.propTypes = {
@@ -23,6 +24,7 @@ class ListingPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            listingDataFromApi: [],
             listingData: [],
             currentlyDisplayedData: [],
             selectedProductList: [],
@@ -50,22 +52,42 @@ class ListingPage extends Component {
         CustomToastr.success(` ${selectedProduct.selectedProductQty} Qunatity of ${selectedProduct.selectedProductName} is selected`)
     }
     componentDidMount() {
-        Listings.listItem.forEach(data => {
-            let qtyList = [];
-            for (let i = 0; i < data.qty; i++) {
-                qtyList.push(i)
+        try {
+
+            let getProductList = ProductData.getAllProduct();
+            getProductList.then(res => {
+               if(res.data.length !== 0) {
+                   this.setState({listingDataFromApi: res.data})
+               } else {
+                   console.log('unable to get data from API. \n Data will be served from local file')
+               }
+            })
+
+            if(this.state.listingDataFromApi.length !== 0) {
+                var listData = this.state.listingDataFromApi;
+            } else {
+                var listData =  Listings.listItem;
             }
-            let listingObj = {
-                id: data.id,
-                name: data.name,
-                description: data.description,
-                qty: qtyList,
-                price: data.price,
-                image: data.image
-            }
-            this.state.listingData.push(listingObj)
-            this.setState({ currentlyDisplayedData: this.state.listingData })
-        })
+
+            listData.forEach(data => {
+                let qtyList = [];
+                for (let i = 0; i < data.qty; i++) {
+                    qtyList.push(i)
+                }
+                let listingObj = {
+                    id: data.id,
+                    name: data.name,
+                    description: data.description,
+                    qty: qtyList,
+                    price: data.price,
+                    image: data.image
+                }
+                this.state.listingData.push(listingObj)
+                this.setState({ currentlyDisplayedData: this.state.listingData })
+            })
+        } catch (err) {
+            CustomToastr.error("Something not right")
+        }
     }
     addToCart = (event) => {
         event.preventDefault();
@@ -81,61 +103,65 @@ class ListingPage extends Component {
     }
     render() {
         return (
-            <Container fluid={true}>
+            <>
                 <Header id="header" />
-                <Row noGutters={true}>
-                    <Col md={{ size: 10 }}></Col>
-                    <Col md={{ size: 2 }}>
-                        {
-                            this.state.selectedProductList.length !== 0 ?
-                                <Button type="submit" label="Add To Cart" handleClick={this.addToCart} />
-                                : null
-                        } {" "}
-                        {
-                            this.state.productReadyForCart.length !== 0 ?
-                                <Button type="warning" label="Checkout" handleClick={this.checkout} />
-                                : null
-                        }
-                    </Col>
-                </Row>
-                <br />
-                <form>
+                <Container fluid={false}>
                     <Row noGutters={true}>
-                        {
-                            this.state.currentlyDisplayedData.length !== 0 ?
-                                this.state.currentlyDisplayedData.map(itemData => {
-                                    return (
-                                        <Col key={itemData.length} md={{ size: 3, offset: 1 }}>
-                                            <Card>
-                                                <img id="cardImg" width="100%" src={`${BASE_URL}/${itemData.image}`} />
-                                                <CardBody>
-                                                    <CardTitle id="cardName">{itemData.name}</CardTitle>
-                                                    <CardText id="cardDesc">{itemData.description}</CardText>
-                                                    <CardText>
-                                                        <Row className="cardInfo">
-                                                            <Col md={{ size: 4 }} id="cardPrice">{itemData.price}</Col>
-                                                            <Col md={{ size: 7 }} id="qtyDisplay">Select Quantity:
-                                                        <Input type="select" name={itemData.name} value={this.state.selectedQty} onChange={this.handleChange} id="cardQty">
-                                                                    {
-                                                                        itemData.qty.map(data => { return (<option key={data} value={data}> {data}</option>) })
-                                                                    }
-                                                                </Input>
-                                                            </Col>
-                                                        </Row>
-                                                    </CardText>
-                                                </CardBody>
-                                            </Card> <br />
-                                        </Col>
-                                    )
-                                })
-                                :
-                                <Col>
-                                    <h2>Could not load your Item list</h2>
-                                </Col>
-                        }
+                        <Col md={{ size: 8 }}></Col>
+                        <Col md={{ size: 4 }}>
+                            {
+                                this.state.selectedProductList.length !== 0 ?
+                                    <Button type="submit" label="Add To Cart" handleClick={this.addToCart} />
+                                    : null
+                            } {" "}
+                            {
+                                this.state.productReadyForCart.length !== 0 ?
+                                    <Button type="warning" label="Checkout" handleClick={this.checkout} />
+                                    : null
+                            }
+                        </Col>
                     </Row>
-                </form>
-            </Container>
+                    <br />
+                    <form>
+                        <Row noGutters={true}>
+                            {
+                                this.state.currentlyDisplayedData.length !== 0 ?
+                                    this.state.currentlyDisplayedData.map(itemData => {
+                                        return (
+                                            <Col key={itemData.length} md={{ size: 3, offset: 1 }}>
+                                                <Card>
+                                                    <CardImg top width="100%" src={`${BASE_URL}/${itemData.image}`} />
+                                                    <CardBody>
+                                                        <CardTitle id="cardName">{itemData.name}</CardTitle>
+                                                        <CardText id="cardDesc">{itemData.description}</CardText>
+                                                        <CardText>
+                                                            <Row className="cardInfo">
+                                                                <Col md={{ size: 4 }} id="cardPrice">{itemData.price}</Col>
+                                                                <Col md={{ size: 6 }} id="qtyDisplay">Qty:
+                                                            <Col md={{ size: 2 }}>
+                                                                        <Input type="select" name={itemData.name} value={this.state.selectedQty} onChange={this.handleChange} id="cardQty">
+                                                                            {
+                                                                                itemData.qty.map(data => { return (<option key={data} value={data}> {data}</option>) })
+                                                                            }
+                                                                        </Input>
+                                                                    </Col>
+                                                                </Col>
+                                                            </Row>
+                                                        </CardText>
+                                                    </CardBody>
+                                                </Card> <br />
+                                            </Col>
+                                        )
+                                    })
+                                    :
+                                    <Col>
+                                        <h2>Could not load your Item list</h2>
+                                    </Col>
+                            }
+                        </Row>
+                    </form>
+                </Container>
+            </>
         )
     }
 }
