@@ -108,7 +108,7 @@ class ListingPage extends Component {
                 <Container fluid={false}>
                     <Row noGutters={true}>
                         <Col md={{ size: 8 }}></Col>
-                        <Col md={{ size: 2 }}>
+                        <Col md={{ size: 4 }}>
                             {
                                 this.state.selectedProductList.length !== 0 ?
                                     <Button type="submit" label="Add To Cart" handleClick={this.addToCart} />
